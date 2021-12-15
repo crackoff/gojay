@@ -21,7 +21,7 @@ func (dec *Decoder) decodeObject(j UnmarshalerJSONObject) (int, error) {
 	keys := j.NKeys()
 	for ; dec.cursor < dec.length || dec.read(); dec.cursor++ {
 		switch dec.data[dec.cursor] {
-		case ' ', '\n', '\t', '\r', ',':
+		case ' ', '\n', '\t', '\r', ',', '}':
 		case '{':
 			dec.cursor = dec.cursor + 1
 			// if keys is zero we will parse all keys
